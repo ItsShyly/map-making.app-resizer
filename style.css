@@ -1,0 +1,50 @@
+/* Main container */
+.page-map-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  overflow-x: hidden;
+  position: relative;
+}
+
+
+/* Fix right sections width*/
+.page-map-editor > .location-preview {
+  width: 98%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-map-editor > .map-overview {
+  width: 98%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Fix Selection manager components */
+.selection-manager form {
+  margin-inline: 0 !important;
+  margin-top: 5px;
+}
+
+.selection-manager button {
+  margin-left: 0 !important;
+  margin-right: 5px;
+}
+
+/* Resizer element */
+.window-resizer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 30%;
+  align-self: center;
+  background: transparent;
+  cursor: ew-resize;
+  z-index: 10;
+  user-select: none;
+}
+
+.window-resizer:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
