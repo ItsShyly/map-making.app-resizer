@@ -1,19 +1,36 @@
 {
   "manifest_version": 3,
-  "name": "map-making.app Window resizer",
-  "version": "1.0",
-  "description": "Add a draggable resizer between the map and the tags/preview",
-  "permissions": ["scripting"],
+  "name": "Map Making App - Extras",
+  "version": "2.0",
+  "description": "Some extra tools for the Map Making App",
+  "permissions": ["scripting", "activeTab", "storage"],
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
   "content_scripts": [
     {
       "matches": ["https://map-making.app/*"],
-      "js": ["content.js"],
-      "css": ["style.css"]
+      "js": ["loader.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.js", "resizer.js", "style.css"],
+      "matches": ["https://map-making.app/*"]
     }
   ]
 }
