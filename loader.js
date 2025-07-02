@@ -16,6 +16,15 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
+// Add this new listener for keyboard shortcuts
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.command) {
+    window.dispatchEvent(
+      new CustomEvent("extensionCommand", { detail: message.command })
+    );
+  }
+});
+
 function injectScripts() {
   // Inject CSS
   const css = document.createElement('link');

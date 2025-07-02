@@ -42,3 +42,14 @@ function updateIcon(isActive) {
     title: isActive ? "Extension is active" : "Extension is disabled"
   });
 }
+
+//Shortcuts
+chrome.commands.onCommand.addListener((command) => {
+  if (command === "focus-tag-input" || command === "close-tag-overlay") {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0]) {
+        chrome.tabs.sendMessage(tabs[0].id, { command });
+      }
+    });
+  }
+});

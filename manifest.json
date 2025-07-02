@@ -1,11 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Map Making App - Extras",
-  "version": "2.0",
+  "version": "2.1",
   "description": "Some extra tools for the Map Making App",
-  "permissions": ["scripting", "activeTab", "storage"],
+  "permissions": ["scripting", "activeTab", "storage", "commands"],
   "icons": {
     "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
@@ -32,5 +33,14 @@
       "resources": ["content.js", "resizer.js", "style.css"],
       "matches": ["https://map-making.app/*"]
     }
-  ]
+  ],
+  "commands": {
+    "focus-tag-input": {
+      "suggested_key": {
+        "default": "Ctrl+Space",
+        "mac": "Ctrl+Space"
+      },
+      "description": "Focus tag input or open tag overlay"
+    }
+  }
 }

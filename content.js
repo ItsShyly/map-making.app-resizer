@@ -1,3 +1,12 @@
+// ==================== COMMAND HANDLING ====================
+window.addEventListener("extensionCommand", (event) => {
+  if (event.detail === "focus-tag-input") {
+    focusTagInput();
+     event.preventDefault();
+  } 
+});
+
+
 // ==================== FULLSCREEN DETECTION SYSTEM ====================
 let isFullscreen = false;
 let tagOverlay = null;
@@ -363,10 +372,7 @@ function init() {
       event.target.tagName === "TEXTAREA" ||
       event.target.isContentEditable;
 
-    if (event.ctrlKey && event.code === "Space") {
-      focusTagInput();
-      event.preventDefault();
-    }
+
 
     if (event.key === "Escape" && isTagOverlayOpen) {
       closeTagOverlay();
